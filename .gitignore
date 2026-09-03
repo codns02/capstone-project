@@ -1,9 +1,13 @@
+# Visual Studio / C#
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.csproj.user
+
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
 venv/
-.env
-
-# macOS
-.DS_Store
+.venv/
