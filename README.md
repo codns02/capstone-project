@@ -33,7 +33,18 @@
 
 1. **비전 인식 (Python)**: 웹캠을 통해 공정 상황 및 대상 상태를 실시간 모니터링
 2. **제어 명령 (Python/Tkinter -> Arduino)**: 맥북 Tkinter GUI의 인터페이스 조작에 따라 아두이노로 구동 명령 전달
-3. **하드웨어 구동 (Arduino)**: 스태퍼모터, 진공펌프, 리니어 모터 등을 통해 물리적 이송 및 흡착 수행
+3. **하드웨어 구동 (Arduino)**: 스테퍼모터, 진공펌프, 리니어 모터 등을 통해 물리적 이송 및 흡착 수행
 4. **피드백 및 리포트**: 센서 데이터를 수집하여 RPM을 측정하고, `report.py`를 통해 공정 리포트 생성
 
-본 프로젝트는 캡스톤 디자인 결과물입니다.
+## 🚀 Getting Started
+
+```bash
+# 1. 저장소 클론
+git clone [https://github.com/codns02/capstone-project.git](https://github.com/codns02/capstone-project.git)
+cd capstone-project
+
+# 2. 필수 라이브러리 설치
+pip install -r requirements.txt
+
+# 3. 메인 프로그램 실행 (Tkinter GUI 및 시스템 통합 제어)
+python Python/main.py
