@@ -1,50 +1,24 @@
-# Capstone Project: 반도체 포토 공정
+# Real-Time Wafer Status Monitoring System (Capstone Design)
 
-본 프로젝트는 반도체 포토 공정을 중심으로 스테퍼모터, 진공펌프, 리니어 액추에이터, 타미야 모터, 웹캠을 활용한 정밀 자동 이송 로봇 시스템입니다. 본 프로젝트에서 하드웨어 조립을 제외한 **모든 프로그래밍(Python 비전 처리, Tkinter GUI, 아두이노 연동 및 시스템 통합)**을 담당했습니다.
+실시간 웹캠 영상 및 YOLO 모델을 활용한 웨이퍼 상태 모니터링, 그리고 아두이노 기반 모터/하드웨어 제어가 통합된 실시간 시스템입니다.
 
-## 🛠 Tech Stack & Role
-* **Role**: Lead Programmer (전체 소프트웨어 아키텍처 및 프로그래밍 총괄)
-* **Programming & GUI**: Python, Tkinter (맥북 기반 GUI 환경)
-* **Vision & AI**: OpenCV, YOLO (Roboflow 활용)
-* **Hardware Control**: Arduino (스테퍼모터, 진공펌프, 리니어 액추에이터, 타미야 모터, 센서 연동)
+## 📌 주요 기능
+* **실시간 모니터링:** 웹캠을 통한 아크릴 웨이퍼 대체재의 색상 변화 및 상태 감지
+* **YOLO 비전 모델 연동:** 객체 인식 및 결함 상태 분류
+* **하드웨어 제어:** 스테퍼 모터 구동 및 아두이노 마이크로컨트롤러 연동을 통한 물리적 공정 제어
+* **GUI 대시보드:** 상태 변화 실시간 시각화 및 센서/모터 동작 로그 출력
 
-## 🛠 폴더 구조
+## 🛠️ 기술 스택
+* **Language:** C# / Python / C++ (Arduino)
+* **Framework & Tool:** Windows Forms / WPF / Roboflow (Model Training)
+* **Hardware:** Arduino Microcontroller, Stepper Motor, MOSFET, Hall Sensor, SMPS
 
-* **Arduino/**: 시스템 제어용 아두이노 소스 코드
-  * `Lenear/`: 리니어 모터 제어
-  * `Masking_steppermt/`: 마스킹 스태퍼 모터 제어
-  * `Tamiya/`: 타미야 모터 제어
-  * `Transfer_steppermt/`: 이송용 스태퍼 모터 제어
-  * `Vacuum_stepper_hallsensor/`: 흡착 및 RPM 측정 통합 코드
-  * *... 외 유틸리티 코드*
-* **Python/**: 비전 처리 및 시스템 통합 스크립트
-  * `main.py`: 메인 시스템 제어 및 Tkinter GUI 연동
-  * `collect_data.py`: 센서 데이터 수집
-  * `vision_test.py`: 비전 처리 테스트
-  * `report.py`: 생산 리포트 생성
-
-## ⚙️ 주요 기능
-
-* **정밀 이송**: 스태퍼 모터를 활용한 위치 제어 및 리니어 액추에이터 연동
-* **통합 제어 및 GUI**: 흡착, 스태퍼 모터, 센서 데이터의 실시간 동기화 및 맥북 환경 Tkinter GUI를 통한 시스템 제어
-* **모니터링**: 홀센서를 이용한 실시간 RPM 측정 및 시스템 로그 기록
-
-## 🔄 시스템 작동 흐름 (Logic Flow)
-
-1. **비전 인식 (Python)**: 웹캠을 통해 공정 상황 및 대상 상태를 실시간 모니터링
-2. **제어 명령 (Python/Tkinter -> Arduino)**: 맥북 Tkinter GUI의 인터페이스 조작에 따라 아두이노로 구동 명령 전달
-3. **하드웨어 구동 (Arduino)**: 스테퍼모터, 진공펌프, 리니어 모터 등을 통해 물리적 이송 및 흡착 수행
-4. **피드백 및 리포트**: 센서 데이터를 수집하여 RPM을 측정하고, `report.py`를 통해 공정 리포트 생성
-
-## 🚀 Getting Started
-
-```bash
-# 1. 저장소 클론
-git clone [https://github.com/codns02/capstone-project.git](https://github.com/codns02/capstone-project.git)
-cd capstone-project
-
-# 2. 필수 라이브러리 설치
-pip install -r requirements.txt
-
-# 3. 메인 프로그램 실행 (Tkinter GUI 및 시스템 통합 제어)
-python Python/main.py
+## 📁 디렉토리 구조
+```text
+├── src/
+│   ├── ClientGUI/     # C# / Windows Forms 대시보드 및 UI
+│   ├── VisionModel/   # YOLO 기반 웨이퍼 감지 및 비전 로직
+│   └── Arduino/       # 스테퍼 모터 및 센서 제어용 펌웨어 코드
+├── docs/              # 프로젝트 보고서 및 발표 자료
+├── models/            # YOLO 학습 모델 파일 및 설정
+└── README.md          # 프로젝트 개요 및 가이드
